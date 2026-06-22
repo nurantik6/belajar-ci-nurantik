@@ -32,5 +32,15 @@ $routes->group('keranjang', ['filter' => 'auth'], function ($routes) {
 
 $routes->get('keranjang', 'TransaksiController::index', ['filter' => 'auth']);
 $routes->get('checkout', 'TransaksiController::checkout', ['filter' =>'auth']);
+$routes->post('buy', 'TransaksiController::buy', ['filter' => 'auth']);
+$routes->post('/upload-bukti', 'TransaksiController::uploadBukti');
+$routes->post('penjualan/updateStatus/(:any)', 'TransaksiController::updateStatus/$1', ['filter' => 'auth']);
+$routes->get('penjualan', 'Home::penjualan', ['filter' => 'auth']); 
 $routes->get('get-location', 'TransaksiController::getLocation', ['filter' => 'auth']);
 $routes->get('get-cost', 'TransaksiController::getCost', ['filter' => 'auth']);
+$routes->get('profile', 'Home::profile', ['filter' => 'auth']);
+$routes->resource('api', ['controller' => 'apiController']);
+$routes->get('laporan/pendapatan', 'LaporanController::pendapatan');
+$routes->get('laporan/exportPdf', 'LaporanController::exportPdf');
+$routes->get('laporan/exportExcel', 'LaporanController::exportExcel');
+$routes->get('/dashboard', 'Dashboard::index');

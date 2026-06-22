@@ -22,7 +22,6 @@
         </div>
         <div class="col-12">
             <label for="kelurahan" class="form-label">Kelurahan</label>
-
             <!--<strong>select kelurahan</strong> -->
             <select class="form-control" id="kelurahan" name="kelurahan" required></select>
         </div>
@@ -68,7 +67,7 @@
                     <tr>
                         <td colspan="2"></td>
                         <td>Subtotal</td>
-                        <td><?php echo number_to_currency( $total, 'IDR' ) ?></td>
+                        <td><?php echo number_to_currency($total, 'IDR') ?></td>
                     </tr>
                     <tr>
                         <td colspan="2"></td>
