@@ -61,7 +61,7 @@
         if (session()->get('role') == 'admin') {
         ?>
             <li class="nav-item">
-                <a class="nav-link <?= (strpos(uri_string(), 'dashboard') === 0) ?'' : 'collapsed' ?>" href="<?= base_url('/dashboard') ?>">
+                <a class="nav-link <?= (strpos(uri_string(), 'dashboard') === 0) ? '' : 'collapsed' ?>" href="<?= base_url('/dashboard') ?>">
                     <i class="bi bi-card-list"></i>
                     <span>Dashboard</span>
                 </a>
@@ -69,6 +69,6 @@
         <?php
         }
         ?>
-
+        
     </ul>
 </aside><!-- End Sidebar-->

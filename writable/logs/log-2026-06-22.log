@@ -183,3 +183,221 @@ DEBUG - 2026-06-22 16:41:58 --> Session: Class initialized using 'CodeIgniter\Se
 DEBUG - 2026-06-22 16:43:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-06-22 16:44:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-06-22 16:44:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 17:29:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 17:29:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 17:29:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 17:29:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 17:29:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-06-22 17:29:27 --> Cart Class Initialized
+DEBUG - 2026-06-22 17:29:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 17:29:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 17:29:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 17:32:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-06-22 17:32:22 --> ErrorException: Undefined property: CodeIgniter\View\View::$uri
+[Method: GET, Route: dashboard]
+in APPPATH\Views\components\sidebar.php on line 73.
+ 1 APPPATH\Views\components\sidebar.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\View\\View::$uri', 'C:\\xampp\\htdocs\\ci-nurantik\\app\\Views\\components\\sidebar.php', 73)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\ci-nurantik\\app\\Views\\components\\sidebar.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(489): CodeIgniter\View\View->render('components/sidebar', null, true)
+ 5 APPPATH\Views\layout.php(51): CodeIgniter\View\View->include('components/sidebar')
+ 6 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\ci-nurantik\\app\\Views\\layout.php')
+ 7 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(256): CodeIgniter\View\View->render('layout', [], true)
+ 9 SYSTEMPATH\Common.php(1254): CodeIgniter\View\View->render('dashboard', [], true)
+10 APPPATH\Controllers\Dashboard.php(67): view('dashboard', [...])
+11 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Dashboard->index()
+12 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+13 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ci-nurantik\\public\\index.php')
+DEBUG - 2026-06-22 17:33:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-06-22 17:33:42 --> ErrorException: Undefined property: CodeIgniter\View\View::$uri
+[Method: GET, Route: dashboard]
+in APPPATH\Views\components\sidebar.php on line 73.
+ 1 APPPATH\Views\components\sidebar.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\View\\View::$uri', 'C:\\xampp\\htdocs\\ci-nurantik\\app\\Views\\components\\sidebar.php', 73)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\ci-nurantik\\app\\Views\\components\\sidebar.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(489): CodeIgniter\View\View->render('components/sidebar', null, true)
+ 5 APPPATH\Views\layout.php(51): CodeIgniter\View\View->include('components/sidebar')
+ 6 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\ci-nurantik\\app\\Views\\layout.php')
+ 7 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(256): CodeIgniter\View\View->render('layout', [], true)
+ 9 SYSTEMPATH\Common.php(1254): CodeIgniter\View\View->render('dashboard', [], true)
+10 APPPATH\Controllers\Dashboard.php(67): view('dashboard', [...])
+11 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Dashboard->index()
+12 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+13 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ci-nurantik\\public\\index.php')
+DEBUG - 2026-06-22 17:33:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-06-22 17:33:45 --> ErrorException: Undefined property: CodeIgniter\View\View::$uri
+[Method: GET, Route: /]
+in APPPATH\Views\components\sidebar.php on line 73.
+ 1 APPPATH\Views\components\sidebar.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\View\\View::$uri', 'C:\\xampp\\htdocs\\ci-nurantik\\app\\Views\\components\\sidebar.php', 73)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\ci-nurantik\\app\\Views\\components\\sidebar.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(489): CodeIgniter\View\View->render('components/sidebar', null, true)
+ 5 APPPATH\Views\layout.php(51): CodeIgniter\View\View->include('components/sidebar')
+ 6 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\ci-nurantik\\app\\Views\\layout.php')
+ 7 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(256): CodeIgniter\View\View->render('layout', [], true)
+ 9 SYSTEMPATH\Common.php(1254): CodeIgniter\View\View->render('v_home', [], true)
+10 APPPATH\Controllers\Home.php(33): view('v_home', [...])
+11 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Home->index()
+12 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+13 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ci-nurantik\\public\\index.php')
+DEBUG - 2026-06-22 17:34:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-06-22 17:34:42 --> ErrorException: Undefined property: CodeIgniter\View\View::$uri
+[Method: GET, Route: /]
+in APPPATH\Views\components\sidebar.php on line 73.
+ 1 APPPATH\Views\components\sidebar.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\View\\View::$uri', 'C:\\xampp\\htdocs\\ci-nurantik\\app\\Views\\components\\sidebar.php', 73)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\ci-nurantik\\app\\Views\\components\\sidebar.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(489): CodeIgniter\View\View->render('components/sidebar', null, true)
+ 5 APPPATH\Views\layout.php(51): CodeIgniter\View\View->include('components/sidebar')
+ 6 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\ci-nurantik\\app\\Views\\layout.php')
+ 7 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(256): CodeIgniter\View\View->render('layout', [], true)
+ 9 SYSTEMPATH\Common.php(1254): CodeIgniter\View\View->render('v_home', [], true)
+10 APPPATH\Controllers\Home.php(33): view('v_home', [...])
+11 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Home->index()
+12 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+13 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ci-nurantik\\public\\index.php')
+DEBUG - 2026-06-22 17:37:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-06-22 17:37:21 --> ErrorException: Undefined property: CodeIgniter\View\View::$uri
+[Method: GET, Route: /]
+in APPPATH\Views\components\sidebar.php on line 73.
+ 1 APPPATH\Views\components\sidebar.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\View\\View::$uri', 'C:\\xampp\\htdocs\\ci-nurantik\\app\\Views\\components\\sidebar.php', 73)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\ci-nurantik\\app\\Views\\components\\sidebar.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(489): CodeIgniter\View\View->render('components/sidebar', null, true)
+ 5 APPPATH\Views\layout.php(51): CodeIgniter\View\View->include('components/sidebar')
+ 6 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\ci-nurantik\\app\\Views\\layout.php')
+ 7 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(256): CodeIgniter\View\View->render('layout', [], true)
+ 9 SYSTEMPATH\Common.php(1254): CodeIgniter\View\View->render('v_home', [], true)
+10 APPPATH\Controllers\Home.php(33): view('v_home', [...])
+11 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Home->index()
+12 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+13 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ci-nurantik\\public\\index.php')
+DEBUG - 2026-06-22 17:37:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 17:37:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 17:37:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 17:41:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-06-22 17:41:28 --> ErrorException: Undefined property: CodeIgniter\View\View::$uri
+[Method: GET, Route: dashboard]
+in APPPATH\Views\components\sidebar.php on line 73.
+ 1 APPPATH\Views\components\sidebar.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\View\\View::$uri', 'C:\\xampp\\htdocs\\ci-nurantik\\app\\Views\\components\\sidebar.php', 73)
+ 2 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\ci-nurantik\\app\\Views\\components\\sidebar.php')
+ 3 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(489): CodeIgniter\View\View->render('components/sidebar', null, true)
+ 5 APPPATH\Views\layout.php(51): CodeIgniter\View\View->include('components/sidebar')
+ 6 SYSTEMPATH\View\View.php(240): include('C:\\xampp\\htdocs\\ci-nurantik\\app\\Views\\layout.php')
+ 7 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(256): CodeIgniter\View\View->render('layout', [], true)
+ 9 SYSTEMPATH\Common.php(1254): CodeIgniter\View\View->render('dashboard', [], true)
+10 APPPATH\Controllers\Dashboard.php(67): view('dashboard', [...])
+11 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Dashboard->index()
+12 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+13 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ci-nurantik\\public\\index.php')
+DEBUG - 2026-06-22 17:42:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 17:42:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 17:42:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 17:43:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 17:54:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 17:54:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 17:54:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 17:54:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 17:54:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 17:54:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 17:58:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-06-22 17:58:21 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "layout/template.php"
+[Method: GET, Route: laporan/produk-terlaris]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('layout/template.php')
+ 2 SYSTEMPATH\View\View.php(256): CodeIgniter\View\View->render('layout/template', [], true)
+ 3 SYSTEMPATH\Common.php(1254): CodeIgniter\View\View->render('laporan/produk_terlaris', [], true)
+ 4 APPPATH\Controllers\Laporan.php(22): view('laporan/produk_terlaris', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Laporan->produk_terlaris()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ci-nurantik\\public\\index.php')
+CRITICAL - 2026-06-22 17:58:24 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "layout/template.php"
+[Method: GET, Route: laporan/piutang]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('layout/template.php')
+ 2 SYSTEMPATH\View\View.php(256): CodeIgniter\View\View->render('layout/template', [], true)
+ 3 SYSTEMPATH\Common.php(1254): CodeIgniter\View\View->render('laporan/piutang', [], true)
+ 4 APPPATH\Controllers\Laporan.php(31): view('laporan/piutang', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Laporan->piutang()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ci-nurantik\\public\\index.php')
+CRITICAL - 2026-06-22 17:58:27 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "layout/template.php"
+[Method: GET, Route: laporan/arus-kas]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('layout/template.php')
+ 2 SYSTEMPATH\View\View.php(256): CodeIgniter\View\View->render('layout/template', [], true)
+ 3 SYSTEMPATH\Common.php(1254): CodeIgniter\View\View->render('laporan/arus_kas', [], true)
+ 4 APPPATH\Controllers\Laporan.php(40): view('laporan/arus_kas', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Laporan->arus_kas()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ci-nurantik\\public\\index.php')
+CRITICAL - 2026-06-22 17:58:29 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "layout/template.php"
+[Method: GET, Route: laporan/laba-rugi]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('layout/template.php')
+ 2 SYSTEMPATH\View\View.php(256): CodeIgniter\View\View->render('layout/template', [], true)
+ 3 SYSTEMPATH\Common.php(1254): CodeIgniter\View\View->render('laporan/laba_rugi', [], true)
+ 4 APPPATH\Controllers\Laporan.php(49): view('laporan/laba_rugi', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Laporan->laba_rugi()
+ 6 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+ 7 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\ci-nurantik\\public\\index.php')
+DEBUG - 2026-06-22 18:00:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 18:00:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 18:00:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 18:02:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 18:02:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 18:11:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 18:11:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 18:11:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-06-22 18:11:46 --> Cart Class Initialized
+DEBUG - 2026-06-22 18:11:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 18:11:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 18:11:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-22 18:11:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
