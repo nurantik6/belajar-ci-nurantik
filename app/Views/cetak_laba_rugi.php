@@ -45,7 +45,7 @@
 
     <div class="judul">
         <h2>LAPORAN LABA RUGI</h2>
-        <h3>WARUNG ANTIK</h3>
+        <h3>TEMAN MINUM ANTIK</h3>
         <p>Periode: <?= ($tanggal_awal && $tanggal_akhir) ? date('d M Y', strtotime($tanggal_awal)) . ' s/d ' . date('d M Y', strtotime($tanggal_akhir)) : 'Semua Waktu' ?></p>
     </div>
 

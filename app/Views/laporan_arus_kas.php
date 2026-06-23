@@ -130,7 +130,23 @@
     border-left: 2px solid #ef5350 !important;
     border-right: 2px solid #ef5350 !important;
 }
+
+ /* Kustomisasi Teks Judul & Garis Pembatas */
+    h4 {
+        color: #1e88e5 !important;
+        font-weight: 600 !important;
+    }
+    hr {
+        border-color: #bbdefb !important;
+        opacity: 0.7 !important;
+    }
+
 </style>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="m-0">Laporan Arus Kas</h4>
+</div>
+<hr>
 
 <div class="pagetitle">
   <!-- <h1>Laporan Arus Kas (Cash Flow)</h1> -->

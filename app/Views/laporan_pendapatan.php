@@ -114,10 +114,25 @@ helper('number');
         color: #455a64 !important;
         font-weight: bold !important;
     }
+ /* Kustomisasi Teks Judul & Garis Pembatas */
+    h4 {
+        color: #1e88e5 !important;
+        font-weight: 600 !important;
+    }
+    hr {
+        border-color: #bbdefb !important;
+        opacity: 0.7 !important;
+    }
+
 </style>
 
-<!-- <h3>Laporan Pendapatan</h3> -->
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="m-0">Laporan Pendapatan</h4>
+</div>
 <hr>
+
+<!-- <h3>Laporan Pendapatan</h3> -->
+<!-- <hr> -->
 <form action="<?= base_url('laporan_pendapatan') ?>" method="get" class="row g-3 mb-4">
     <div class="col-md-3">
         <label for="tanggal_awal" class="form-label">Tanggal Awal</label>

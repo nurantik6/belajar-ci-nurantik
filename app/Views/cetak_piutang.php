@@ -44,7 +44,7 @@
 
     <div class="judul">
         <h2>LAPORAN DAFTAR PIUTANG PELANGGAN</h2>
-        <h3>WARUNG ANTIK</h3>
+        <h3>TEMAN MINUM ANTIK</h3>
         <p>Tanggal Cetak: <?= date('d M Y') ?></p>
     </div>
 

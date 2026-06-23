@@ -9,7 +9,7 @@
                 <div class="d-flex justify-content-center py-4">
                     <a href="<?= base_url() ?>" class="logo d-flex align-items-center w-auto">
                         <img src="<?= base_url() ?>NiceAdmin/assets/img/logo.png" alt="">
-                        <span class="d-none d-lg-block">Warung Antik</span>
+                        <span class="d-none d-lg-block">TEMAN MINUM ANTIK</span>
                     </a>
                 </div>
 

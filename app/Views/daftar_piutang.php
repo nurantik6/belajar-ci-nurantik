@@ -131,7 +131,22 @@
     .table tbody tr td.text-success {
         color: #66bb6a !important; /* Hijau tegas bernuansa pastel */
     }
+
+        /* Kustomisasi Teks Judul & Garis Pembatas */
+    h4 {
+        color: #1e88e5 !important;
+        font-weight: 600 !important;
+    }
+    hr {
+        border-color: #bbdefb !important;
+        opacity: 0.7 !important;
+    }
 </style>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="m-0">Daftar Piutang Pelanggan</h4>
+</div>
+<hr>
 
 <div class="pagetitle">
   <!-- <h1></h1> -->
@@ -148,7 +163,7 @@
     <div class="card-body pt-4">
       
       <div class="d-flex justify-content-between align-items-center mb-3">
-        <h5 class="card-title p-0 m-0" style="font-size: 1.25rem;">Daftar Piutang Pelanggan</h5>
+        <!-- <h5 class="card-title p-0 m-0" style="font-size: 1.25rem;">Daftar Piutang Pelanggan</h5> -->
         <div>
           <a href="<?= base_url('daftar_piutang/exportPdfPiutang') ?>" target="_blank" class="btn btn-danger btn-sm me-2"><i class="bi bi-file-pdf me-1"></i> Cetak PDF</a>
           <a href="<?= base_url('daftar_piutang/exportExcelPiutang') ?>" target="_blank" class="btn btn-success btn-sm"><i class="bi bi-file-excel me-1"></i> Export Excel</a>

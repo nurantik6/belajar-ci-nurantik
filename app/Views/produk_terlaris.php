@@ -89,7 +89,22 @@
     .table tbody tr:hover td {
         background-color: #f4f9ff !important; /* Hover biru pastel muda */
     }
+ /* Kustomisasi Teks Judul & Garis Pembatas */
+    h4 {
+        color: #1e88e5 !important;
+        font-weight: 600 !important;
+    }
+    hr {
+        border-color: #bbdefb !important;
+        opacity: 0.7 !important;
+    }
+
 </style>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="m-0">Laporan Produk Terlaris</h4>
+</div>
+<hr>
 
 <div class="pagetitle">
   <!-- <h1>Laporan Produk Terlaris</h1>

@@ -62,7 +62,8 @@
             background-color: #fffde7 !important; /* Kuning pastel lembut */
             color: #455a64;
         }
-    </style>
+</style>
+
 </head>
 <body>
     <h3>Laporan Pendapatan</h3>

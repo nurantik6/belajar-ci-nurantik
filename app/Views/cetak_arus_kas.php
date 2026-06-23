@@ -75,7 +75,7 @@
 
     <div class="judul">
         <h2>LAPORAN ARUS KAS (CASH FLOW)</h2>
-        <h3>WARUNG ANTIK</h3>
+        <h3>TEMAN MINUM ANTIK</h3>
         <p>Tanggal Cetak: <?= date('d M Y') ?></p>
     </div>
 
