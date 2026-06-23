@@ -11,7 +11,7 @@ if (uri_string() != "") {
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>- Toko - <?= $hlm ?></title>
+    <title> Warung Antik - <?= $hlm ?></title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -52,7 +52,7 @@ if (uri_string() != "") {
 
     <main id="main" class="main">
 
-        <div class="pagetitle">
+        <!-- <div class="pagetitle">
             <h1><?= $hlm ?></h1>
             <nav>
                 <ol class="breadcrumb">
@@ -66,7 +66,7 @@ if (uri_string() != "") {
                     ?>
                 </ol>
             </nav>
-        </div><!-- End Page Title -->
+        </div>End Page Title -->
 
         <section class="section">
             <div class="row">

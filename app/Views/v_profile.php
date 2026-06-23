@@ -1,9 +1,166 @@
 <?= $this->extend('layout') ?>
 <?= $this->section('content') ?>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    /* Font Global & Latar Belakang */
+    body, .main, #main {
+        font-family: 'Poppins', sans-serif !important;
+        background-color: #f4f9ff !important; /* Latar belakang biru pastel sangat lembut */
+        color: #455a64 !important;
+    }
+
+    /* Kustomisasi Teks Judul */
+    strong {
+        color: #1e88e5 !important;
+    }
+    hr {
+        border-color: #bbdefb !important;
+        opacity: 0.7 !important;
+    }
+
+    /* Kustomisasi Wadah Tabel (Card Look) */
+    .table-responsive {
+        background-color: #ffffff !important;
+        border-radius: 12px !important;
+        padding: 20px !important;
+        box-shadow: 0 4px 15px rgba(100, 181, 246, 0.1) !important;
+        margin-top: 1rem;
+    }
+
+    /* Kustomisasi Tabel - Disesuaikan agar sama dengan halaman Produk */
+    .table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        border: none !important;
+    }
+    
+    /* Header Tabel (Kotak Biru Membulat) */
+    .table thead th {
+        background-color: #eaf3ff !important; /* Header tabel biru pastel terang */
+        color: #1565c0 !important;
+        font-weight: 600 !important;
+        border: none !important; /* Menghilangkan garis pembatas agar terlihat seperti blok utuh */
+        padding: 15px !important;
+        vertical-align: middle;
+    }
+    
+    /* Melengkungkan ujung kiri header */
+    .table thead th:first-child {
+        border-top-left-radius: 10px !important;
+        border-bottom-left-radius: 10px !important;
+    }
+    
+    /* Melengkungkan ujung kanan header */
+    .table thead th:last-child {
+        border-top-right-radius: 10px !important;
+        border-bottom-right-radius: 10px !important;
+    }
+
+    .table tbody td, .table tbody th {
+        vertical-align: middle !important;
+        color: #546e7a !important;
+        border-bottom: 1px solid #f0f8ff !important;
+        padding: 12px 15px !important;
+    }
+    .table tbody tr:hover td, .table tbody tr:hover th {
+        background-color: #f4f9ff !important; /* Efek hover baris biru muda */
+    }
+
+    /* Kustomisasi Input Form DataTables (Search & Entries) */
+    .dataTables_wrapper .dataTables_filter input,
+    .dataTables_wrapper .dataTables_length select {
+        border: 1px solid #bbdefb !important;
+        border-radius: 8px !important;
+        padding: 5px 10px !important;
+        color: #455a64 !important;
+    }
+    .dataTables_wrapper .dataTables_filter input:focus,
+    .dataTables_wrapper .dataTables_length select:focus {
+        border-color: #64b5f6 !important;
+        outline: none !important;
+        box-shadow: 0 0 0 0.2rem rgba(100, 181, 246, 0.25) !important;
+    }
+
+    /* Kustomisasi Tombol (Buttons) */
+    .btn {
+        border-radius: 8px !important;
+        font-weight: 500 !important;
+        padding: 6px 14px !important;
+        transition: all 0.3s ease !important;
+        border: none !important;
+    }
+    
+    /* Tombol Detail (Success) */
+    .btn-success {
+        background-color: #81c784 !important; /* Hijau pastel */
+        color: #ffffff !important;
+    }
+    .btn-success:hover {
+        background-color: #66bb6a !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(129, 199, 132, 0.3) !important;
+    }
+
+    /* Tombol Upload Bukti (Warning) */
+    .btn-warning {
+        background-color: #ffb74d !important; /* Oranye pastel */
+        color: #ffffff !important;
+    }
+    .btn-warning:hover {
+        background-color: #ffa726 !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(255, 183, 77, 0.3) !important;
+    }
+
+    /* Tombol Kirim di Modal (Primary) */
+    .btn-primary {
+        background-color: #64b5f6 !important; /* Biru pastel */
+        color: #ffffff !important;
+    }
+    .btn-primary:hover {
+        background-color: #42a5f5 !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(100, 181, 246, 0.3) !important;
+    }
+
+    /* Kustomisasi Modal */
+    .modal-content {
+        border: none !important;
+        border-radius: 16px !important;
+        box-shadow: 0 10px 30px rgba(100, 181, 246, 0.25) !important;
+    }
+    .modal-header {
+        border-bottom: 1px solid #e3f2fd !important;
+        background-color: #ffffff !important;
+        border-top-left-radius: 16px !important;
+        border-top-right-radius: 16px !important;
+    }
+    .modal-title {
+        color: #1e88e5 !important;
+        font-weight: 600 !important;
+    }
+    .modal-footer {
+        border-top: 1px solid #e3f2fd !important;
+    }
+
+    /* Kustomisasi Input File di dalam Modal */
+    .modal-body .form-control {
+        border: 1px solid #bbdefb !important;
+        border-radius: 8px !important;
+        color: #455a64 !important;
+    }
+    .modal-body .form-control:focus {
+        border-color: #64b5f6 !important;
+        box-shadow: 0 0 0 0.25rem rgba(100, 181, 246, 0.25) !important;
+    }
+</style>
+
 History Transaksi Pembelian <strong><?= $username ?></strong>
 <hr>
 <div class="table-responsive">
-    <!-- Table with stripped rows -->
     <table class="table datatable">
         <thead>
             <tr>
@@ -27,7 +184,6 @@ History Transaksi Pembelian <strong><?= $username ?></strong>
                         <td><?php echo $item['created_at'] ?></td>
                         <td><?php echo number_to_currency($item['total_harga'], 'IDR') ?></td>
                         <td><?php echo $item['alamat'] ?></td>
-                        <!-- ($item['status'] == "1") ? "Sudah Selesai" : "Belum Selesai" ?> -->
                         <td><?php echo [
                                 0 => 'Menunggu Pembayaran',
                                 1 => 'Sudah Dibayar',
@@ -37,11 +193,6 @@ History Transaksi Pembelian <strong><?= $username ?></strong>
                             ][$item['status']] ?? 'Status Tidak Diketahui' ?>
                         </td>
                         <td>
-                            <!-- <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#detailModal-<?= $item['id'] ?>">
-                                Detail
-                            </button> -->
-
-                            <!-- Detail Modal Begin -->
                             <div class="modal fade" id="detailModal-<?= $item['id'] ?>" tabindex="-1">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
@@ -62,7 +213,7 @@ History Transaksi Pembelian <strong><?= $username ?></strong>
                                                         $item2['foto']
                                                         != '' and file_exists("img/" . $item2['foto'] . "")
                                                     ) : ?>
-                                                        <img src="<?php echo base_url() . "img/" . $item2['foto'] ?>" width="100px">
+                                                        <img src="<?php echo base_url() . "img/" . $item2['foto'] ?>" width="100px" style="border-radius: 8px;">
                                                     <?php endif; ?>
                                                     <strong><?= $item2['nama']
                                                             ?></strong>
@@ -81,26 +232,23 @@ History Transaksi Pembelian <strong><?= $username ?></strong>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Detail Modal End -->
-
+                        </td>
                         <td>
                             <?php if (!empty($item['bukti_pembayaran'])): ?>
                                 <img src="<?= base_url('uploads/bukti/' . $item['bukti_pembayaran'])
-                                            ?>" width="150px" alt="Bukti Pembayaran">
+                                            ?>" width="150px" alt="Bukti Pembayaran" style="border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
                             <?php endif; ?>
                         </td>
                         <td>
                             <button type="button" class="btn btn-success" data-bs-toggle="modal"
                                 data-bs-target="#detailModal-<?= $item['id'] ?>"> Detail
                             </button>
-                            <!-- Tombol dan Modal Upload Bukti -->
                             <?php if ($item['status'] == 0): ?>
                                 <button type="button" class="btn btn-warning mt-1" data-bs-toggle="modal" data-bs-target="#uploadModal-<?= $item['id'] ?>">
                                     Upload Bukti
                                 </button>
                         </td>
                     </tr>
-                    <!-- Modal Upload -->
                     <div class="modal fade" id="uploadModal-<?= $item['id'] ?>" tabindex="-1">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
@@ -131,6 +279,5 @@ History Transaksi Pembelian <strong><?= $username ?></strong>
         ?>
         </tbody>
     </table>
-    <!-- End Table with stripped rows -->
-</div>
+    </div>
 <?= $this->endSection() ?>

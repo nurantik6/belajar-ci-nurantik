@@ -6,17 +6,19 @@ use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 
 use App\Models\ProductModel;
+use App\Models\ArusKasModel; // Pastikan ini ada
 use Dompdf\Dompdf;
 
 class ProdukController extends BaseController
 {
-
     protected $productModel;
+    protected $arusKasModel; // 1. Tambahkan deklarasi properti di sini
 
     function __construct()
     {
         helper('form');
         $this->productModel = new ProductModel();
+        $this->arusKasModel = new ArusKasModel(); // 2. Inisialisasi model di sini
     }
 
     public function index()
@@ -30,31 +32,49 @@ class ProdukController extends BaseController
     {
         $dataFoto = $this->request->getFile('foto');
 
+        $nama       = $this->request->getPost('nama');
+        $harga_beli = $this->request->getPost('harga_beli');
+        $harga      = $this->request->getPost('harga');
+        $jumlah     = $this->request->getPost('jumlah');
+
         $dataForm = [
-            'nama' => $this->request->getPost('nama'),
-            'harga' => $this->request->getPost('harga'),
-            'jumlah' => $this->request->getPost('jumlah')
+            'nama'       => $nama,
+            'harga_beli' => $harga_beli,
+            'harga'      => $harga,
+            'jumlah'     => $jumlah
         ];
 
-        if ($dataFoto->isValid()) {
+        if ($dataFoto->isValid() && !$dataFoto->hasMoved()) {
             $fileName = $dataFoto->getRandomName();
             $dataFoto->move('img/', $fileName);
-
             $dataForm['foto'] = $fileName;
         }
 
+        // 3. Simpan produk
         $this->productModel->insert($dataForm);
 
-        return redirect('produk')->with('success', 'Data Berhasil Ditambah');
+        // 4. OTOMATISASI ARUS KAS
+        $total_pengeluaran = $harga_beli * $jumlah;
+        
+        $this->arusKasModel->insert([
+            'tanggal'    => date('Y-m-d'),
+            'keterangan' => 'Pembelian Stok: ' . $nama . ' (' . $jumlah . ' Pcs)',
+            'tipe'       => 'Keluar',
+            'nominal'    => $total_pengeluaran
+        ]);
+
+        return redirect('produk')->with('success', 'Data Berhasil Ditambah & Kas Keluar Tercatat');
     }
+
     public function edit($id)
     {
         $dataProduk = $this->productModel->find($id);
 
         $dataForm = [
-            'nama' => $this->request->getPost('nama'),
-            'harga' => $this->request->getPost('harga'),
-            'jumlah' => $this->request->getPost('jumlah')
+            'nama'       => $this->request->getPost('nama'),
+            'harga_beli' => $this->request->getPost('harga_beli'),
+            'harga'      => $this->request->getPost('harga'),
+            'jumlah'     => $this->request->getPost('jumlah')
         ];
 
         if ($this->request->getPost('check') == 1) {
@@ -67,7 +87,6 @@ class ProdukController extends BaseController
             if ($dataFoto->isValid()) {
                 $fileName = $dataFoto->getRandomName();
                 $dataFoto->move('img/', $fileName);
-
                 $dataForm['foto'] = $fileName;
             }
         }
@@ -79,39 +98,19 @@ class ProdukController extends BaseController
 
     public function delete($id)
     {
-        $dataProduk = $this->productModel->find($id);
         $this->productModel->delete($id);
-
         return redirect('produk')->with('success', 'Data Berhasil Dihapus');
     }
+
     public function download()
     {
-        // Ambil data produk dari database
         $products = $this->productModel->findAll();
-
-        // Render view menjadi HTML
-        $html = view('produk/download_pdf', [
-            'products' => $products
-        ]);
-
-        // Nama file PDF
+        $html = view('produk/download_pdf', ['products' => $products]);
         $filename = date('Y-m-d-H-i-s') . '-produk.pdf';
-
-        // Inisialisasi Dompdf
         $dompdf = new Dompdf();
-
-        // Load HTML ke Dompdf
         $dompdf->loadHtml($html);
-
-        // Setting ukuran kertas dan orientasi
         $dompdf->setPaper('A4', 'portrait');
-
-        // Generate PDF
         $dompdf->render();
-
-        // Download / tampilkan PDF
-        $dompdf->stream($filename, [
-            'Attachment' => true
-        ]);
+        $dompdf->stream($filename, ['Attachment' => true]);
     }
 }

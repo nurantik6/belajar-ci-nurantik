@@ -17,6 +17,7 @@
         "guzzlehttp/guzzle": "^7.12",
         "jason-napolitano/codeigniter4-cart-module": "^1.0",
         "laminas/laminas-escaper": "^2.18",
+        "league/oauth2-google": "*",
         "psr/log": "^3.0"
     },
     "require-dev": {

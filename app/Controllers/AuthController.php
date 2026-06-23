@@ -58,6 +58,62 @@ class AuthController extends BaseController
             return view('v_login');
         }
     }
+
+    public function google()
+    {
+        session()->set('register_email', 'contoh.email@gmail.com');
+        return redirect()->to(base_url('auth/register_form'));
+    }
+
+    // Klik tombol Facebook langsung diarahkan ke form dengan email default simulasi
+    public function facebook()
+    {
+        session()->set('register_email', 'contoh.email@facebook.com');
+        return redirect()->to(base_url('auth/register_form'));
+    }
+
+    // Menampilkan Form Pendaftaran
+    public function register_form()
+    {
+        $data = [
+            'email' => session()->get('register_email') ?? ''
+        ];
+        return view('register_sosmed', $data);
+    }
+
+    // Proses Simpan ke Database
+    public function register_submit()
+    {
+        $db = \Config\Database::connect();
+        
+        $username = $this->request->getPost('username');
+        $email    = $this->request->getPost('email');
+        $password = password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
+        $role     = $this->request->getPost('role');
+
+        // Cek jika username ganda
+        $cekUser = $db->table('user')->where('username', $username)->get()->getRow();
+        if ($cekUser) {
+            return redirect()->back()->with('failed', 'Username sudah digunakan, silakan pilih yang lain.');
+        }
+
+        $dataSimpan = [
+            'username'   => $username,
+            'email'      => $email,
+            'password'   => $password,
+            'role'       => $role,
+            'created_at' => date('Y-m-d H:i:s')
+        ];
+
+        // Simpan ke tabel user
+        $db->table('user')->insert($dataSimpan);
+
+        // Bersihkan session
+        session()->remove('register_email');
+
+        return redirect()->to(base_url('login'))->with('success', 'Pendaftaran akun berhasil! Silakan login.');
+    }
+
     public function logout()
     {
         session()->destroy();
