@@ -177,16 +177,16 @@ $password = [
                             <div class="col-12 mt-4">
                                 <div class="d-flex align-items-center mb-3">
                                     <hr class="flex-grow-1 m-0">
-                                    <span class="mx-3 text-muted small">Atau daftar dengan</span>
+                                    <span class="mx-3 text-muted small">or sign up with</span>
                                     <hr class="flex-grow-1 m-0">
                                 </div>
 
                                 <div class="d-grid gap-2">
                                     <a href="<?= base_url('auth/google') ?>" class="btn btn-outline-danger">
-                                        <i class="bi bi-google me-2"></i> Daftar dengan Google
+                                        <i class="bi bi-google me-2"></i> Sign up with Google
                                     </a>
                                     <a href="<?= base_url('auth/facebook') ?>" class="btn btn-outline-primary">
-                                        <i class="bi bi-facebook me-2"></i> Daftar dengan Facebook
+                                        <i class="bi bi-facebook me-2"></i> Sign up with Facebook
                                     </a>
                                 </div>
                             </div>

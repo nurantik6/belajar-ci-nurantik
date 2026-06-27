@@ -1,43 +1,68 @@
 <style>
-/* Sidebar Styling - Biru Pastel Modern */
-.sidebar {
-    background-color: #ffffff !important;
-    border-right: 1px solid #e3f2fd !important;
-    padding: 20px 15px;
-}
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-.sidebar-nav .nav-link {
-    background: transparent !important;
-    color: #546e7a !important;
-    border-radius: 12px !important;
-    padding: 12px 20px !important;
-    margin-bottom: 5px !important;
-    transition: all 0.3s ease !important;
-    font-weight: 500 !important;
-}
+    /* Sidebar Styling - Biru Pastel Modern */
+    .sidebar {
+        font-family: 'Poppins', sans-serif !important;
+        background-color: #ffffff !important;
+        border-right: none !important; /* Menghilangkan garis keras */
+        box-shadow: 4px 0 20px rgba(100, 181, 246, 0.08) !important; /* Menggantinya dengan bayangan halus */
+        padding: 20px 15px;
+    }
 
-/* Efek saat Menu Aktif */
-.sidebar-nav .nav-link:not(.collapsed) {
-    background: linear-gradient(90deg, #e3f2fd 0%, #bbdefb 100%) !important;
-    color: #1565c0 !important;
-}
+    /* Styling untuk Judul Kategori (seperti: LAPORAN & PENJUALAN) */
+    .sidebar-nav .nav-heading {
+        font-size: 0.95rem !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1.2px !important;
+        color: #90caf9 !important; /* Biru pastel cerah */
+        font-weight: 700 !important;
+        padding: 10px 15px 5px 15px !important;
+        margin-top: 15px !important;
+    }
 
-/* Efek Hover */
-.sidebar-nav .nav-link:hover {
-    background-color: #f4f9ff !important;
-    color: #1565c0 !important;
-}
+    .sidebar-nav .nav-link {
+        background: transparent !important;
+        color: #1565c0 !important; 
+        border-radius: 12px !important;
+        padding: 12px 18px !important;
+        margin-bottom: 8px !important;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important; /* Transisi sangat mulus */
+        font-weight: 500 !important;
+        font-size: 0.95rem !important;
+        display: flex;
+        align-items: center;
+    }
 
-/* Ikon Sidebar */
-.sidebar-nav .nav-link i {
-    color: #64b5f6 !important;
-    font-size: 1.1rem !important;
-    margin-right: 15px !important;
-}
+    /* Efek Interaktif Hover (Saat kursor diarahkan) */
+    .sidebar-nav .nav-link:hover {
+        background-color: #f4f9ff !important;
+        color: #1e88e5 !important;
+        transform: translateX(6px); /* Efek bergeser sedikit ke kanan, membuatnya interaktif */
+    }
 
-.sidebar-nav .nav-link:not(.collapsed) i {
-    color: #1565c0 !important;
-}
+    /* Efek saat Menu Aktif */
+    .sidebar-nav .nav-link:not(.collapsed) {
+        background: #eaf3ff !important; /* Latar biru sangat lembut */
+        color: #1565c0 !important; /* Teks biru gelap/tegas */
+        font-weight: 600 !important;
+        box-shadow: 0 4px 12px rgba(100, 181, 246, 0.15) !important; /* Bayangan pada tombol aktif */
+    }
+
+    /* Ikon Sidebar Default */
+    .sidebar-nav .nav-link i {
+        color: #90caf9 !important; /* Biru redup */
+        font-size: 1.2rem !important;
+        margin-right: 15px !important;
+        transition: all 0.3s ease !important;
+    }
+
+    /* Ikon saat di-hover atau Aktif */
+    .sidebar-nav .nav-link:hover i,
+    .sidebar-nav .nav-link:not(.collapsed) i {
+        color: #1e88e5 !important; /* Ikon menyala menjadi biru cerah */
+        transform: scale(1.15); /* Ikon sedikit membesar (pop-up effect) */
+    }
 </style>
 <aside id="sidebar" class="sidebar">
     <ul class="sidebar-nav" id="sidebar-nav">
@@ -57,12 +82,14 @@
             </a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link <?= (uri_string() == 'keranjang') ? "" : "collapsed" ?>" href="<?= base_url('keranjang') ?>">
-                <i class="bi bi-cart3"></i>
-                <span>Keranjang</span>
-            </a>
-        </li>
+        <?php if (session()->get('role') != 'admin'): ?>
+            <li class="nav-item">
+                <a class="nav-link <?= (uri_string() == 'keranjang') ? "" : "collapsed" ?>" href="<?= base_url('keranjang') ?>">
+                    <i class="bi bi-cart3"></i>
+                    <span>Keranjang</span>
+                </a>
+            </li>
+        <?php endif; ?>
 
         <?php if (session()->get('role') == 'admin'): ?>
             <li class="nav-item">
@@ -73,15 +100,18 @@
             </li>
         <?php endif; ?>
 
-        <li class="nav-item">
-            <a class="nav-link <?= (uri_string() == 'profile') ? "" : "collapsed" ?>" href="<?= base_url('profile') ?>">
-                <i class="bi bi-person-circle"></i>
-                <span>Profile</span>
-            </a>
-        </li>
+        <?php if (session()->get('role') != 'admin'): ?>
+            <li class="nav-item">
+                <a class="nav-link <?= (uri_string() == 'profile') ? "" : "collapsed" ?>" href="<?= base_url('profile') ?>">
+                    <i class="bi bi-person-circle"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+        <?php endif; ?>
 
         <?php if (session()->get('role') == 'admin'): ?>
-            <li class="nav-heading">Laporan & Penjualan</li> <li class="nav-item">
+            <li class="nav-heading">Laporan & Penjualan</li> 
+            <li class="nav-item">
                 <a class="nav-link <?= (uri_string() == 'penjualan') ? "" : "collapsed" ?>" href="<?= base_url('penjualan') ?>">
                     <i class="bi bi-bag-check"></i>
                     <span>Penjualan</span>

@@ -232,9 +232,27 @@
                 datasets: [{
                     label: 'Qty Terjual',
                     data: <?= $qtyProduk ?>,
-                    backgroundColor: '#81c784', /* Hijau pastel */
+                    // Array warna-warna pastel yang berbeda untuk setiap batang
+                    backgroundColor: [
+                        '#ffb74d', /* Oranye pastel */
+                        '#64b5f6', /* Biru pastel */
+                        '#81c784', /* Hijau pastel */
+                        '#e57373', /* Merah muda/salmon pastel */
+                        '#ba68c8', /* Ungu pastel */
+                        '#4dd0e1', /* Cyan/Tosca pastel */
+                        '#ffd54f', /* Kuning pastel */
+                        '#a1887f'  /* Cokelat pastel lembut */
+                    ],
+                    borderWidth: 0,
                     borderRadius: 6
                 }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        display: false // Menyembunyikan legenda "Qty Terjual" karena warnanya sudah mewakili tiap produk di sumbu X
+                    }
+                }
             }
         });
     // STATUS PESANAN

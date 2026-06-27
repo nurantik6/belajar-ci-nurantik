@@ -5,9 +5,12 @@
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
     /* Font Global & Latar Belakang */
-    body, .main, #main {
+    body,
+    .main,
+    #main {
         font-family: 'Poppins', sans-serif !important;
-        background-color: #f4f9ff !important; /* Latar belakang biru pastel sangat lembut */
+        background-color: #f4f9ff !important;
+        /* Latar belakang biru pastel sangat lembut */
         color: #455a64 !important;
     }
 
@@ -15,6 +18,7 @@
     strong {
         color: #1e88e5 !important;
     }
+
     hr {
         border-color: #bbdefb !important;
         opacity: 0.7 !important;
@@ -36,37 +40,43 @@
         border-spacing: 0;
         border: none !important;
     }
-    
+
     /* Header Tabel (Kotak Biru Membulat) */
     .table thead th {
-        background-color: #eaf3ff !important; /* Header tabel biru pastel terang */
+        background-color: #eaf3ff !important;
+        /* Header tabel biru pastel terang */
         color: #1565c0 !important;
         font-weight: 600 !important;
-        border: none !important; /* Menghilangkan garis pembatas agar terlihat seperti blok utuh */
+        border: none !important;
+        /* Menghilangkan garis pembatas agar terlihat seperti blok utuh */
         padding: 15px !important;
         vertical-align: middle;
     }
-    
+
     /* Melengkungkan ujung kiri header */
     .table thead th:first-child {
         border-top-left-radius: 10px !important;
         border-bottom-left-radius: 10px !important;
     }
-    
+
     /* Melengkungkan ujung kanan header */
     .table thead th:last-child {
         border-top-right-radius: 10px !important;
         border-bottom-right-radius: 10px !important;
     }
 
-    .table tbody td, .table tbody th {
+    .table tbody td,
+    .table tbody th {
         vertical-align: middle !important;
         color: #546e7a !important;
         border-bottom: 1px solid #f0f8ff !important;
         padding: 12px 15px !important;
     }
-    .table tbody tr:hover td, .table tbody tr:hover th {
-        background-color: #f4f9ff !important; /* Efek hover baris biru muda */
+
+    .table tbody tr:hover td,
+    .table tbody tr:hover th {
+        background-color: #f4f9ff !important;
+        /* Efek hover baris biru muda */
     }
 
     /* Kustomisasi Input Form DataTables (Search & Entries) */
@@ -77,6 +87,7 @@
         padding: 5px 10px !important;
         color: #455a64 !important;
     }
+
     .dataTables_wrapper .dataTables_filter input:focus,
     .dataTables_wrapper .dataTables_length select:focus {
         border-color: #64b5f6 !important;
@@ -92,12 +103,14 @@
         transition: all 0.3s ease !important;
         border: none !important;
     }
-    
+
     /* Tombol Detail (Success) */
     .btn-success {
-        background-color: #81c784 !important; /* Hijau pastel */
+        background-color: #81c784 !important;
+        /* Hijau pastel */
         color: #ffffff !important;
     }
+
     .btn-success:hover {
         background-color: #66bb6a !important;
         transform: translateY(-2px);
@@ -106,9 +119,11 @@
 
     /* Tombol Upload Bukti (Warning) */
     .btn-warning {
-        background-color: #ffb74d !important; /* Oranye pastel */
+        background-color: #ffb74d !important;
+        /* Oranye pastel */
         color: #ffffff !important;
     }
+
     .btn-warning:hover {
         background-color: #ffa726 !important;
         transform: translateY(-2px);
@@ -117,9 +132,11 @@
 
     /* Tombol Kirim di Modal (Primary) */
     .btn-primary {
-        background-color: #64b5f6 !important; /* Biru pastel */
+        background-color: #64b5f6 !important;
+        /* Biru pastel */
         color: #ffffff !important;
     }
+
     .btn-primary:hover {
         background-color: #42a5f5 !important;
         transform: translateY(-2px);
@@ -132,16 +149,19 @@
         border-radius: 16px !important;
         box-shadow: 0 10px 30px rgba(100, 181, 246, 0.25) !important;
     }
+
     .modal-header {
         border-bottom: 1px solid #e3f2fd !important;
         background-color: #ffffff !important;
         border-top-left-radius: 16px !important;
         border-top-right-radius: 16px !important;
     }
+
     .modal-title {
         color: #1e88e5 !important;
         font-weight: 600 !important;
     }
+
     .modal-footer {
         border-top: 1px solid #e3f2fd !important;
     }
@@ -152,9 +172,59 @@
         border-radius: 8px !important;
         color: #455a64 !important;
     }
+
     .modal-body .form-control:focus {
         border-color: #64b5f6 !important;
         box-shadow: 0 0 0 0.25rem rgba(100, 181, 246, 0.25) !important;
+    }
+
+    /* --- Kustomisasi Item di Modal Detail --- */
+    .detail-item-card {
+        background-color: #ffffff;
+        border: 1px solid #e3f2fd !important;
+        border-radius: 12px;
+        padding: 12px;
+        margin-bottom: 12px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .detail-item-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(100, 181, 246, 0.15);
+    }
+
+    .detail-item-img {
+        width: 75px;
+        height: 75px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid #f0f8ff;
+    }
+
+    .detail-item-title {
+        color: #1e88e5;
+        font-weight: 600;
+        font-size: 0.95rem;
+        margin-bottom: 2px;
+    }
+
+    .detail-item-price {
+        color: #78909c;
+        font-size: 0.85rem;
+    }
+
+    .detail-item-subtotal {
+        color: #455a64;
+        font-weight: 700;
+        font-size: 0.95rem;
+    }
+
+    .detail-summary-box {
+        background-color: #eaf3ff;
+        border-radius: 12px;
+        padding: 12px 16px;
+        margin-top: 15px;
+        border: 1px dashed #90caf9;
     }
 </style>
 
@@ -201,33 +271,46 @@ History Transaksi Pembelian <strong><?= $username ?></strong>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <?php
-                                            if (!empty($product)) {
-                                                foreach (
-                                                    $product[$item['id']]
-                                                    as $index2 => $item2
-                                                ) : ?>
-                                                    <?php echo $index2 + 1 .
-                                                        ")" ?>
-                                                    <?php if (
-                                                        $item2['foto']
-                                                        != '' and file_exists("img/" . $item2['foto'] . "")
-                                                    ) : ?>
-                                                        <img src="<?php echo base_url() . "img/" . $item2['foto'] ?>" width="100px" style="border-radius: 8px;">
-                                                    <?php endif; ?>
-                                                    <strong><?= $item2['nama']
-                                                            ?></strong>
-                                                    <?= number_to_currency($item2['harga'], 'IDR') ?>
-                                                    <br>
-                                                    <?= "(" . $item2['jumlah']
-                                                        . " pcs)" ?><br>
-                                                    <?= number_to_currency($item2['subtotal_harga'], 'IDR') ?>
-                                                    <hr>
-                                            <?php
-                                                endforeach;
-                                            }
-                                            ?>
-                                            Ongkir <?= number_to_currency($item['ongkir'], 'IDR') ?>
+                                            <?php if (!empty($product)) : ?>
+                                                <div class="detail-items-wrapper">
+                                                    <?php foreach ($product[$item['id']] as $index2 => $item2) : ?>
+                                                        <div class="detail-item-card d-flex align-items-center">
+
+                                                            <div class="me-3">
+                                                                <?php if ($item2['foto'] != '' and file_exists("img/" . $item2['foto'])) : ?>
+                                                                    <img src="<?= base_url() . "img/" . $item2['foto'] ?>" class="detail-item-img" alt="Produk">
+                                                                <?php else: ?>
+                                                                    <div class="detail-item-img d-flex align-items-center justify-content-center" style="background: #f4f9ff; color: #90caf9; font-size: 0.8rem;">No Image</div>
+                                                                <?php endif; ?>
+                                                            </div>
+
+                                                            <div class="flex-grow-1">
+                                                                <div class="detail-item-title">
+                                                                    <?= $item2['nama'] ?>
+                                                                </div>
+                                                                <div class="d-flex justify-content-between align-items-center mt-1">
+                                                                    <div class="detail-item-price">
+                                                                        <?= number_to_currency($item2['harga'], 'IDR') ?> <span class="text-muted">x <?= $item2['jumlah'] ?> pcs</span>
+                                                                    </div>
+                                                                    <div class="detail-item-subtotal">
+                                                                        <?= number_to_currency($item2['subtotal_harga'], 'IDR') ?>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    <?php endforeach; ?>
+                                                </div>
+                                            <?php endif; ?>
+
+                                            <div class="detail-summary-box d-flex justify-content-between align-items-center">
+                                                <span style="color: #1565c0; font-weight: 500;">
+                                                    <i class="fas fa-truck me-1"></i> Ongkos Kirim
+                                                </span>
+                                                <strong style="color: #1565c0; font-size: 1.05rem;">
+                                                    <?= number_to_currency($item['ongkir'], 'IDR') ?>
+                                                </strong>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -279,5 +362,5 @@ History Transaksi Pembelian <strong><?= $username ?></strong>
         ?>
         </tbody>
     </table>
-    </div>
+</div>
 <?= $this->endSection() ?>

@@ -7,6 +7,7 @@ use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniterCart\Cart;
 use App\Models\TransactionModel;
 use App\Models\TransactionDetailModel;
+use App\Models\ProductModel;
 
 class TransaksiController extends BaseController
 {
@@ -15,6 +16,7 @@ class TransaksiController extends BaseController
     protected $apiKey;
     protected $transaction;
     protected $transaction_detail;
+    protected $product;
 
     function __construct()
     {
@@ -25,6 +27,7 @@ class TransaksiController extends BaseController
         $this->apiKey = env('COST_KEY');
         $this->transaction = new TransactionModel();
         $this->transaction_detail = new TransactionDetailModel();
+        $this->product = new ProductModel();
     }
 
     public function index()
@@ -38,9 +41,37 @@ class TransaksiController extends BaseController
 
     public function cart_add()
     {
+        $idProduk = $this->request->getPost('id');
+        $qtyDitambah = 1; // Asumsi penambahan default adalah 1
+
+        // Cek apakah produk sudah ada di keranjang untuk menjumlahkan qty-nya
+        $cartContents = $this->cart->contents();
+        $qtyDiKeranjang = 0;
+        foreach ($cartContents as $item) {
+            if ($item['id'] == $idProduk) {
+                $qtyDiKeranjang = $item['qty'];
+                break;
+            }
+        }
+
+        $totalQtyDiminta = $qtyDiKeranjang + $qtyDitambah;
+
+        // Ambil data produk dari database
+        $produk = $this->product->find($idProduk);
+
+        // Validasi ketersediaan stok
+        if (!$produk || $totalQtyDiminta > $produk['jumlah']) {
+            session()->setFlashdata(
+                'error', 
+                'Gagal menambahkan! Sisa stok ' . $produk['nama'] . ' hanya ' . $produk['jumlah'] . ' pcs.'
+            );
+            return redirect()->to(base_url('/'));
+        }
+
+        // Jika stok aman, lanjutkan insert ke keranjang
         $this->cart->insert([
-            'id'      => $this->request->getPost('id'),
-            'qty'     => 1,
+            'id'      => $idProduk,
+            'qty'     => $qtyDitambah,
             'price'   => $this->request->getPost('harga'),
             'name'    => $this->request->getPost('nama'),
             'options' => [
@@ -50,8 +81,7 @@ class TransaksiController extends BaseController
 
         session()->setFlashdata(
             'success',
-            'Produk berhasil ditambahkan ke keranjang. 
-	    <a href="' . base_url('keranjang') . '">Lihat</a>'
+            'Produk berhasil ditambahkan ke keranjang. <a href="' . base_url('keranjang') . '">Lihat</a>'
         );
         return redirect()->to(base_url('/'));
     }
@@ -59,19 +89,40 @@ class TransaksiController extends BaseController
     public function cart_edit()
     {
         $i = 1;
-        foreach ($this->cart->contents() as $item) {
-            $qty = $this->request->getPost('qty' . $i++);
+        $adaError = false;
 
+        foreach ($this->cart->contents() as $item) {
+            $qtyBaru = $this->request->getPost('qty' . $i++);
+            
+            // Ambil data produk dari database untuk cek stok
+            $produk = $this->product->find($item['id']);
+
+            // Validasi jika input qty melebihi stok di database
+            if ($produk && $qtyBaru > $produk['jumlah']) {
+                session()->setFlashdata(
+                    'error', 
+                    'Stok ' . $produk['nama'] . ' tidak mencukupi. Maksimal pembelian: ' . $produk['jumlah']
+                );
+                $adaError = true;
+                
+                // Kembalikan qty ke maksimal stok yang tersedia (Opsional)
+                // $qtyBaru = $produk['jumlah']; 
+                
+                // Lewati update untuk item ini jika melebihi stok
+                continue; 
+            }
+
+            // Jika aman, update keranjang
             $this->cart->update([
                 'rowid' => $item['rowid'],
-                'qty'   => $qty
+                'qty'   => $qtyBaru
             ]);
         }
 
-        session()->setFlashdata(
-            'success',
-            'Keranjang berhasil diperbarui'
-        );
+        if (!$adaError) {
+            session()->setFlashdata('success', 'Keranjang berhasil diperbarui');
+        }
+        
         return redirect()->to(base_url('keranjang'));
     }
 
@@ -83,7 +134,6 @@ class TransaksiController extends BaseController
             'success',
             'Produk berhasil dihapus dari keranjang'
         );
-
         return redirect()->to(base_url('keranjang'));
     }
 
@@ -103,6 +153,47 @@ class TransaksiController extends BaseController
         $data['items'] = $this->cart->contents();
         $data['total'] = $this->cart->total();
         return view('v_checkout', $data);
+    }
+
+    public function buy()
+    {
+        if ($this->request->getPost()) {
+            $dataForm = [
+                'username' => $this->request->getPost('username'),
+                'total_harga' => $this->request->getPost('total_harga'),
+                'alamat' => $this->request->getPost('alamat'),
+                'ongkir' => $this->request->getPost('ongkir'),
+                'status' => 0,
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s")
+            ];
+            $this->transaction->insert($dataForm);
+            $last_insert_id = $this->transaction->getInsertID();
+            
+            foreach ($this->cart->contents() as $value) {
+                $dataFormDetail = [
+                    'transaction_id' => $last_insert_id,
+                    'product_id' => $value['id'],
+                    'jumlah' => $value['qty'],
+                    'diskon' => 0,
+                    'subtotal_harga' => $value['qty'] * $value['price'],
+                    'created_at' => date("Y-m-d H:i:s"),
+                    'updated_at' => date("Y-m-d H:i:s")
+                ];
+                $this->transaction_detail->insert($dataFormDetail);
+                
+                $produk = $this->product->find($value['id']);
+                if ($produk) {
+                    $sisaStok = $produk['jumlah'] - $value['qty']; 
+                
+                    $this->product->update($value['id'], [
+                        'jumlah' => $sisaStok
+                    ]);
+                }
+                }
+            $this->cart->destroy();
+            return redirect()->to(base_url());
+        }
     }
 
     public function getLocation()
@@ -159,37 +250,6 @@ class TransaksiController extends BaseController
         );
         $body = json_decode($response->getBody(), true);
         return $this->response->setJSON($body['data']);
-    }
-
-    public function buy()
-    {
-        if ($this->request->getPost()) {
-            $dataForm = [
-                'username' => $this->request->getPost('username'),
-                'total_harga' => $this->request->getPost('total_harga'),
-                'alamat' => $this->request->getPost('alamat'),
-                'ongkir' => $this->request->getPost('ongkir'),
-                'status' => 0,
-                'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s")
-            ];
-            $this->transaction->insert($dataForm);
-            $last_insert_id = $this->transaction->getInsertID();
-            foreach ($this->cart->contents() as $value) {
-                $dataFormDetail = [
-                    'transaction_id' => $last_insert_id,
-                    'product_id' => $value['id'],
-                    'jumlah' => $value['qty'],
-                    'diskon' => 0,
-                    'subtotal_harga' => $value['qty'] * $value['price'],
-                    'created_at' => date("Y-m-d H:i:s"),
-                    'updated_at' => date("Y-m-d H:i:s")
-                ];
-                $this->transaction_detail->insert($dataFormDetail);
-            }
-            $this->cart->destroy();
-            return redirect()->to(base_url());
-        }
     }
 
     public function updateStatus($id)
